@@ -1,0 +1,52 @@
+﻿@model MVC_Music.Models.Performance
+
+@{
+    ViewData["Title"] = "Remove Performance";
+}
+
+<h1>Remove Performance for Song: @Model.Song.Title</h1>
+
+<h3>Are you sure you want to remove this performance?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Song)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Song.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Musician)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Musician.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Instrument)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Instrument.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FeePaid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FeePaid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Comments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Comments)
+        </dd>
+    </dl>
+    
+    <form asp-action="Remove">
+        <input type="hidden" asp-for="SongID" />
+        <input type="hidden" asp-for="MusicianID" />
+        <input type="hidden" asp-for="InstrumentID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a href='@ViewData["returnURL"]'>Back to Song </a>
+    </form>
+</div>
